@@ -1,0 +1,26 @@
+# site name and description
+title:                mkubaczyk.com - DevOps duties made easier
+description:          Mateusz Kubaczyk, a passionate DevOps Engineer, in love with AWS, Cloud solutions, automation and Apple products.
+
+# just for hero
+hero_name:            mkubaczyk.com
+hero_text:            DevOps duties made easier
+
+baseurl:              /
+url:                  https://mkubaczyk.com
+
+author:               Mateusz Kubaczyk
+author_about:         A passionate DevOps Engineer, in love with AWS, Cloud solutions, automation and Apple products.
+
+lang:                 en_US
+markdown:             kramdown
+logo:                 false
+paginate:             5
+permalink:            /:year/:month/:day/:title 
+
+google_analytics:     UA-105757672-1
+
+plugins:
+  - jekyll-paginate
+  - jekyll-seo-tag
+  - jekyll-sitemap
