@@ -29,27 +29,29 @@ about: 'about.html'
 
 <main id="content" class="content" role="main">
 
+    {% if paginator.total_posts > 0 %}
+        <div class="extra-pagination inner">
+            {% include pagination.html %}
+        </div>
 
-    <div class="extra-pagination inner">
-        {% include pagination.html %}
-    </div>
+        {% for post in paginator.posts %}
 
-    {% for post in paginator.posts %}
-
-    <article class="post">
-        <header class="post-header">
-            <h2 class="post-title"><a href="{{ post.url }}">{{ post.title }}</a></h2>
-            <section class="post-meta">
-                <time class="post-date" datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date_to_long_string }}</time>
+        <article class="post">
+            <header class="post-header">
+                <h2 class="post-title"><a href="{{ post.url }}">{{ post.title }}</a></h2>
+                <section class="post-meta">
+                    <time class="post-date" datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date_to_long_string }}</time>
+                </section>
+            </header>
+            <section class="post-excerpt">
+                {{ post.description }}
             </section>
-        </header>
-        <section class="post-excerpt">
-            {{ post.description }}
-        </section>
-    </article>
+        </article>
 
-    {% endfor %}
+        {% endfor %}
 
-    {% include pagination.html %}
-
+        {% include pagination.html %}
+    {% else %}
+        <p style="text-align:center">Nothing yet.</p>
+    {% endif %}
 </main>
