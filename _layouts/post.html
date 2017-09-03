@@ -61,8 +61,8 @@ post_class: post-template
             <!-- If we want to display author's name and bio -->
             {% if site.author %}
                 <figure class="author-image">
-                    <a class="img" href="{{ site.baseurl }}" style="background-image: url(/assets/images/profile.png)">
-                    <span class="hidden">{{site.author}}'s Picture</span></a>
+                    <a class="img" href="{{ site.baseurl }}about" alt="{{site.author}}'s picture" style="background-image: url(/assets/images/profile.png)">
+                    <span class="hidden">{{site.author}}'s picture</span></a>
                 </figure>
                 <section class="author">
                     <!-- Author Name -->
@@ -70,6 +70,7 @@ post_class: post-template
                     <!-- Author Bio -->
                     <p>
                         {{ site.author_about }}
+                        Find out more <a href="{{ site.baseurl }}about" alt="{{site.author}}">about me</a>.
                     </p>
                 </section>
             {% endif %}
