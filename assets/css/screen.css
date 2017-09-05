@@ -663,7 +663,7 @@ margin on the iframe, cause it breaks stuff. */
 .page-title {
     margin: 10px 0 10px 0;
     font-size: 5rem;
-    letter-spacing: -1px;
+    letter-spacing: 1px;
     font-weight: 700;
     font-family: "Montserrat", sans-serif;
     color: #fff;
@@ -1371,7 +1371,7 @@ body:not(.post-template) .post-title {
 
     .page-title {
         font-size: 4rem;
-        letter-spacing: -1px;
+        letter-spacing: 1px;
     }
 
     .page-description {
