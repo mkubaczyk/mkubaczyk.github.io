@@ -148,7 +148,7 @@ Then, with a simple assumption that your Docker has the IP of `172.17.0.1` (can 
 $ iptables -t nat -A POSTROUTING ! -o docker0 -s 172.17.0.0/16 -j MASQUERADE
 {% endhighlight %}
 
-and... that's it! From this point on, you can access the Internet within a container and have it covered with UFW rules so there is no access leak. That `iptables` rule is nothing more than just the same rule Docker is adding implicitly with `iptables: false` in `/etc/docker/daemon.json`. So by dismantling this through the whole article, we get to the bottom of it and we find a solution that is both secure, because we have control over the traffic we had not before, and explicit, so we know what's going on under the bonnet.
+and... that's it! From this point on, you can access the Internet within a container and have it covered with UFW rules so there is no access leak. That `iptables` rule is nothing more than just the same rule Docker is adding implicitly with `iptables: true` in `/etc/docker/daemon.json`. So by dismantling this through the whole article, we get to the bottom of it and we find a solution that is both secure, because we have control over the traffic we had not before, and explicit, so we know what's going on under the bonnet.
 
 
 ## Summary
