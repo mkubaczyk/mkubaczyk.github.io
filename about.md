@@ -3,6 +3,8 @@ layout: page
 title: About
 permalink: /about
 tags: mateusz kubaczyk devops engineer about poznan developer
+redirect_from:
+  - /about/
 ---
 
 ![mateusz kubaczyk]({{ site.baseurl }}assets/images/profile.png)
