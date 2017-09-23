@@ -1,8 +1,10 @@
 ---
-layout: page
-title: About
-permalink: /about
-tags: mateusz kubaczyk devops engineer about poznan developer
+layout:         page
+title:          About
+permalink:      /about
+description:    "I'm a passionate DevOps Engineer trying to automate as much as possible and I'm writing here to share my experience."
+categories:     mateusz kubaczyk devops experience work poznan developer it
+tags: mateusz   kubaczyk devops engineer about poznan developer
 redirect_from:
   - /about/
 ---
