@@ -5,7 +5,7 @@ date:           2017-09-05 12:00:00
 description:    "See how you can make the Docker obey the rules of UFW on Ubuntu 16.04 (and others) with simple iptables modification."
 categories:     docker ufw ubuntu firewall rules iptables network
 redirect_from:
-  - /2017/09/05/force-docker-not-bypass-ufw-rules-ubuntu-16-04
+  - /2017/09/05/force-docker-not-bypass-ufw-rules-ubuntu-16-04/
 ---
 
 It is not easy to understand what's beneath the mighty Docker everyone has been talking about for the last couple of years with growing fascination. So what is the fuss all about? Well, the fact is that Docker is kind of a revolutionary thing in IT. It might not be the one and only solution to the world's most pressing problems, but it still provides a better way of preparing and deploying applications around the globe. Everyone is trying their hands at it, but the struggle starts where the majority give up on exploring it, assuming that they know everything they would ever need. 
