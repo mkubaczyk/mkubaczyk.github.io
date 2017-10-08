@@ -15,7 +15,7 @@ lang:                 en_US
 markdown:             kramdown
 logo:                 false
 paginate:             5
-permalink:            /:year/:month/:title
+permalink:            /:year/:month/:day/:title
 
 google_analytics:     UA-105757672-1
 
