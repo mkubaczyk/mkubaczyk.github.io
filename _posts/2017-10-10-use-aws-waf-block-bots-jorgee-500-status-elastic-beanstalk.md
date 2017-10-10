@@ -40,11 +40,11 @@ Let’s start with creating a `Condition` as a `String match`. It will verify ea
 
 Then we need to create a `Rule` based on the condition created before. We choose `match at least one of the filters in string match condition`, and then we select our new condition from the previous step.
 
-![aws waf create rule]({{ /assets/images/2017/10/waf-create-rule.png" | absolute_url }})
+![aws waf create rule]({{ "/assets/images/2017/10/waf-create-rule.png" | absolute_url }})
 
 The last step will take place in the `Web ACLs` tab. We need to create a new `Web ACL`, give it a name and pick an Elastic Load Balancer name it will be connected to. Then with `Next` clicked two times, as we can omit the next tab because we’ve already created all the conditions and rules we need, we reach the most important part of the WAF here. We select a `Rule` from the dropdown and click `Add another rule`. Our rule will be added to the `Rules` list and now we can select `Action` being taken for the rule as well as default action when none of the rules will be met. I choose to block anything that’s not passing the conditions and allow a traffic for `Host` header matched requests. 
 
-![aws waf create web acl]({{ /assets/images/2017/10/waf-create-web-acl.png" | absolute_url }})
+![aws waf create web acl]({{ "/assets/images/2017/10/waf-create-web-acl.png" | absolute_url }})
 
 And we’re done! From this point on, requests will be filtered against these rules and will get in response either `403` status when blocked or the desired request URLI will be passed through when accepted. AWS WAF creates Cloudwatch metrics for the created objects so we’re able to follow the traffic as it goes on. As may be seen below, there’s a lot of incoming requests, but from now on we’re able to monitor them somehow. Just notice how many requests are being blocked. All of these come from bots.
 
