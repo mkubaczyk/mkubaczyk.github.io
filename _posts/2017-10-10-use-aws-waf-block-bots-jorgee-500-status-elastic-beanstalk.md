@@ -1,12 +1,13 @@
 ---
-layout:         post
-title:          "Use AWS WAF to block bots like 'Mozilla/5.0 Jorgee' and eliminate ‘requests to the ELB are failing with 5xx’ on AWS Elastic Beanstalk"
-date:           2017-10-10 18:00:00
-description:    "If you're experiencing bots scanning your AWS Elastic Load Balancers within Elastic Beanstalk environments causing it to report false positives on 5xx status codes, then AWS WAF might be the cure you've always been looking for."
-categories:     aws waf request firewall elastic beanstalk eb jorgee bot
+layout: post
+feature-img: "assets/img/blog/2017/10/waf-jorgee-post-header.jpg"
+title: "Use AWS WAF to block bots like 'Mozilla/5.0 Jorgee'"
+date: 2017-10-10 18:00:00
+redirect_from:
+  - /2017/10/10/use-aws-waf-block-bots-jorgee-500-status-elastic-beanstalk
+  - /2017/10/10/use-aws-waf-block-bots-jorgee-500-status-elastic-beanstalk/
+tags: [aws, elastic-beanstalk]
 ---
-
-## The subject
 
 Some months ago during the weekly inspection among the environments I'm keeping alive for my work projects, I’ve noticed there's an increased number of warnings in AWS Elastic Beanstalk events dashboards for almost each application I took a look at. After a quick investigation there was an incontestable cause of this behavior, and as it turned out, it wasn't that easy to solve the problem and clean the dashboard for the future. 
 
@@ -17,16 +18,16 @@ All those events reporting false positives on health of each application make th
 
 You might have experienced the same issue I had and there's a big chance you don’t even know about it. According to my observation, each environment you create within the AWS Elastic Beanstalk service is most likely affected by this. There's just no proper tool to use out of the box to find it out easily but it is so annoying that it happens for each autoscaled EB environment we created so far. If you take a closer look at the screenshot below, you'll notice there's a consistent change of the state between `Ok` and `Warning`. 
 
-![elastic beanstalk dashboard warnings]({{ "/assets/images/2017/10/waf-warnings.png" | absolute_url }})
+![elastic beanstalk dashboard warnings]({{ "/assets/img/blog/2017/10/waf-warnings.png" }})
 
 What’s more, one of the events reports an **increased number of requests failing with 5xx status codes** on Elastic Load Balancer level. That is definitely the worst case scenario you would ever encounter in your environment. Any 500-based status code indicates a problem you have not handled properly within your application. So you start looking for a cause, visiting your Sentry for errors, Datadog for alerts and requests charts, digging into the logs, running your investigation and… there’s nothing. The very first thing that comes up to your mind is that you’re doing something wrong with application monitoring or logging.
 Nothing more far away from the truth. Everything is fine and the sudden change of EB environment health (and all those 5xx statuses) comes from your Elastic Load Balancer and some bots doing a trivial scanning for paths. If you enabled the S3 logs for ELB, then you should investigate the files with the dates you see in your dashboard. And what do these bots do?
 
-![aws waf blocked requests]({{ "/assets/images/2017/10/waf-blocked-requests-list.png" | absolute_url }})
+![aws waf blocked requests]({{ "/assets/img/blog/2017/10/waf-blocked-requests-list.png" }})
 
 Not only do they try to find any path that may be used as vulnerability, but also overwhelm your application with a significant amount of requests at a time. The most annoying one, known as Jorgee, will likely be scanning your new EB environment every time you create a new one. In line with my observations, it performs scanning within the first minutes of your environment’s existence and keeps on scanning every couple of hours at least. The screenshot below presents some constant parts of each scan. What **Jorgee bot** does is taking your AWS ELB IP address (which is not advised to be used as it changes infrequently and is not constant) and performs scanning on it with `User-Agent: Mozilla/5.0 Jorgee`. By using the IP address of AWS ELB and not the DNS name, it causes 5xx status codes to occur. And **that is being seen by EB environment as the 5xxs** in your application. It should be definitely limited on AWS environment level as it’s so easy to generate false positives in error dashboard on EB right now. But it’s not, so we need to solve it somehow. 
 
-![aws waf blocked requests details]({{ "/assets/images/2017/10/waf-blocked-requests-list-details.png" | absolute_url }})
+![aws waf blocked requests details]({{ "/assets/img/blog/2017/10/waf-blocked-requests-list-details.png" }})
 
 ## The solution
 
@@ -36,19 +37,19 @@ The solution I’m going to describe here will not make my application bot-proof
 
 Let’s start with creating a `Condition` as a `String match`. It will verify each request against `Host` header match to any domain name we need. 
 
-![aws waf create string condition]({{ "/assets/images/2017/10/waf-create-string-condition.png" | absolute_url }})
+![aws waf create string condition]({{ "/assets/img/blog/2017/10/waf-create-string-condition.png" }})
 
 Then we need to create a `Rule` based on the condition created before. We choose `match at least one of the filters in string match condition`, and then we select our new condition from the previous step.
 
-![aws waf create rule]({{ "/assets/images/2017/10/waf-create-rule.png" | absolute_url }})
+![aws waf create rule]({{ "/assets/img/blog/2017/10/waf-create-rule.png" }})
 
 The last step will take place in the `Web ACLs` tab. We need to create a new `Web ACL`, give it a name and pick an Elastic Load Balancer name it will be connected to. Then with `Next` clicked two times, as we can omit the next tab because we’ve already created all the conditions and rules we need, we reach the most important part of the WAF here. We select a `Rule` from the dropdown and click `Add another rule`. Our rule will be added to the `Rules` list and now we can select `Action` being taken for the rule as well as default action when none of the rules will be met. I choose to block anything that’s not passing the conditions and allow a traffic for `Host` header matched requests. 
 
-![aws waf create web acl]({{ "/assets/images/2017/10/waf-create-web-acl.png" | absolute_url }})
+![aws waf create web acl]({{ "/assets/img/blog/2017/10/waf-create-web-acl.png" }})
 
 And we’re done! From this point on, requests will be filtered against these rules and will get in response either `403` status when blocked or the desired request URLI will be passed through when accepted. AWS WAF creates Cloudwatch metrics for the created objects so we’re able to follow the traffic as it goes on. As may be seen below, there’s a lot of incoming requests, but from now on we’re able to monitor them somehow. Just notice how many requests are being blocked. All of these come from bots.
 
-![aws waf blocked requests]({{ "/assets/images/2017/10/waf-blocked-requests.png" | absolute_url }})
+![aws waf blocked requests]({{ "/assets/img/blog/2017/10/waf-blocked-requests.png" }})
 
 ## The summary
 

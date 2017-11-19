@@ -1,26 +1,86 @@
-# site name and description
-title:                mkubaczyk.com - DevOps duties made easier
-description:          Mateusz Kubaczyk, a passionate DevOps Engineer, in love with AWS, Cloud solutions, automation and Apple products.
+# SITE CONFIGURATION
+url: "https://www.mkubaczyk.com"
 
-# just for hero
-hero_name:            mkubaczyk.com
-hero_text:            DevOps duties made easier
+# THEME-SPECIFIC CONFIGURATION
+theme_settings:
+  # Meta
+  title: mkubaczyk.com
+  avatar: assets/img/profile.png
+  favicon: assets/favicon.ico
+  gravatar: # Email MD5 hash
+  description: "Mateusz Kubaczyk, a passionate DevOps Engineer, in love with Kubernetes, AWS, Cloud solutions, automation and Apple products." # used by search engines
 
-url:                  https://www.mkubaczyk.com
+  # Header and footer text
+  header_text: Technical blog
+  header_text_feature_image: assets/img/pexels/macbook-coffee-bed.jpeg
+  footer_text: >
+   Powered by <a href="https://jekyllrb.com/">Jekyll</a>, theme based on <a href="https://github.com/sylhare/Type-on-Strap">Type on Strap</a>
 
-author:               Mateusz Kubaczyk
-author_about:         A passionate DevOps Engineer, in love with AWS, Cloud solutions, automation and Apple products.
+  # Icons
+  rss: false
+  email_address: # Full email address, e.g. "sam@example.com"
+  behance:
+  bitbucket: mkubaczyk
+  dribbble:
+  facebook:
+  flickr:
+  gitlab:
+  github: "mkubaczyk"
+  google_plus:
+  instagram:
+  linkedin: "https://www.linkedin.com/in/mkubaczyk" # Full URL
+  pinterest:
+  reddit:
+  soundcloud:
+  stack_exchange: "https://stackoverflow.com/users/8581790/mkubaczyk" # Full URL
+  steam:
+  tumblr:
+  twitter:
+  wordpress:
+  youtube:
 
-lang:                 en_US
-markdown:             kramdown
-logo:                 false
-paginate:             5
-permalink:            /:year/:month/:day/:title
+  # Scripts
+  google_analytics: "UA-105757672-1" # Tracking ID, e.g. "UA-000000-01"
+  disqus_shortname:
+  katex: false # Enable if using math markup
+  
+  # Localization strings
+  str_follow_on: "Follow on"
+  str_rss_follow: "Follow RSS feed"
+  str_email: "Email"
+  str_next_post: "Next post"
+  str_previous_post: "Previous post"
+  str_next_page: "Next"
+  str_previous_page: "Prev"
+  str_continue_reading: "Continue reading"
+  str_javascript_required_disqus: "Please enable JavaScript to view comments."
 
-google_analytics:     UA-105757672-1
+  # Colours, typography and padding
+  # Open the "_sass > base" folder, and open "_variables.scss"
+  google_fonts: "Source+Sans+Pro:400,700,700italic,400italic"
 
-plugins:
-  - jekyll-paginate
-  - jekyll-seo-tag
-  - jekyll-sitemap
-  - jekyll-redirect-from
+  # Post navigation
+  post_navigation: false
+
+# PAGINATION
+paginate: 5
+paginate_path: "blog/page:num"
+
+# PORTFOLIO
+collections:
+  portfolio:
+    output: true
+    permalink: /:collection/:name
+  posts:
+    output: true
+    permalink: /:year/:month/:title
+
+# BUILD SETTINGS
+markdown: kramdown
+highlighter: rouge
+sass:
+  sass_dir: _sass
+  style: :compressed
+plugins: [jekyll-paginate, jekyll-seo-tag, jekyll-redirect-from, jekyll-sitemap]
+#theme: type-on-strap # If using the theme as a jekyll theme gem
+exclude: ["Gemfile", "Gemfile.lock", "type-on-strap.gemspec", "*.gem", "LICENSE", "README.md", "screenshot.png"]
