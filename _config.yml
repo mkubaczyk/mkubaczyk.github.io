@@ -23,7 +23,7 @@ author:
 url: https://www.mkubaczyk.com
 baseurl: ""
 
-google_analytics: "UA-105757672-1"
+google_analytics: UA-105757672-1
 
 # language attribute in <html> element.
 lang: en

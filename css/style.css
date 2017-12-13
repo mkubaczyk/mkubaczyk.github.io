@@ -220,7 +220,7 @@ hr {
 .cover-image-container {
   position: absolute;
   z-index: -9999;
-  opacity: .7;
+  opacity: .3;
   width: 100%;
 }
 .cover-image-container::after {

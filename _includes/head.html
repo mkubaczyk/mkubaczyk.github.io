@@ -25,13 +25,13 @@
 <meta property="og:title" content="{% if page.title %}{{ page.title }} • {{ site.name }}{% else %}{{ site.name }}{% endif %}">
 <meta property="og:locale" content="{{ site.lang }}">
 {% if page.og-image %}
-  <meta property="og:image" content="{{ site.url }}{{ site.baseurl }}/img/{{ page.og-image }}">
+<meta property="og:image" content="{{ site.url }}{{ site.baseurl }}{{ page.og-image }}">
 {% else %}
-  {% if page.cover-image %}
-    <meta property="og:image" content="{{ site.url }}{{ site.baseurl }}/img/{{ page.cover-image }}">
-  {% else %}
-    <meta property="og:image" content="{{ site.url }}{{ site.baseurl }}/img/og-image.jpg">
-  {% endif %}
+{% if page.cover-image %}
+<meta property="og:image" content="{{ site.url }}{{ site.baseurl }}{{ page.cover-image }}">
+{% else %}
+<meta property="og:image" content="{{ site.url }}{{ site.baseurl }}/img/og-image.jpg">
+{% endif %}
 {% endif %}
 <meta property="og:type" content="website">
 <meta property="og:url" content="{{ site.url }}{{ site.baseurl }}{{ page.url }}">
@@ -76,7 +76,7 @@
         m.parentNode.insertBefore(a, m)
     })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
 
-    ga('create', '{{ site.theme_settings.google_analytics }}', 'auto');
+    ga('create', '{{ site.google_analytics }}', 'auto');
     ga('send', 'pageview');
 
 </script>
