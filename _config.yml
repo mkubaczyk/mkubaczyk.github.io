@@ -10,7 +10,7 @@ title:       mkubaczyk.com
 email:       'mkubaczyk@apptension.com'
 description: 'Technical blog by DevOps Engineer made of profession and passion fascinated in Kubernetes, cloud and automation.'
 baseurl:     '' # The subpath of your site, e.g. /blog
-url:         'https://www.mkubaczyk.com/' # The base hostname & protocol for your site
+url:         'https://www.mkubaczyk.com' # The base hostname & protocol for your site
 github:      'https://github.com/mkubaczyk'
 linkedin:    'https://www.linkedin.com/in/mkubaczyk/'
 
