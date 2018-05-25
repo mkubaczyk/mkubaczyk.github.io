@@ -5,7 +5,7 @@ summary: "Docker, by default, will ignore any UFW rules. Here's the article on h
 redirect_from:
   - /2017/09/force-docker-not-bypass-ufw-rules-ubuntu-16-04
   - /2017/09/force-docker-not-bypass-ufw-rules-ubuntu-16-04/
-cover-image: /img/blog/2017/09/ufw-docker-header.jpg
+image: /img/blog/2017/09/ufw-docker-header.jpg
 ---
 
 It is not easy to understand what's beneath the mighty Docker everyone has been talking about for the last couple of years with growing fascination. So what is the fuss all about? Well, the fact is that Docker is kind of a revolutionary thing in IT. It might not be the one and only solution to the world's most pressing problems, but it still provides a better way of preparing and deploying applications around the globe. Everyone is trying their hands at it, but the struggle starts where the majority give up on exploring it, assuming that they know everything they would ever need. 

@@ -1,85 +1,35 @@
-<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-NCDGB9Z');</script>
-<!-- End Google Tag Manager -->
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width">
-<title>
-{% if page.title %}
-{{ page.title }} • {{ site.title }}
-{% else %}
-{{ site.title }}
-{% endif %}
-</title>
-<meta name="description" content="{{ page.summary }} {{ site.description.meta }}">
-<link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="{{ site.baseurl }}/feed.xml">
+<head>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-NCDGB9Z');</script>
+  <!-- End Google Tag Manager -->
+  <meta charset='utf-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
 
-<!-- icons -->
-<link rel="apple-touch-icon" href="{{ site.baseurl }}/apple-touch-icon.png">
-<link rel="icon" type="image/png" href="{{ site.baseurl }}/favicon-96x96.png" sizes="96x96">
-<link rel="icon" type="image/png" href="{{ site.baseurl }}/favicon-32x32.png" sizes="32x32">
-<link rel="icon" type="image/png" href="{{ site.baseurl }}/android-chrome-192x192.png" sizes="192x192">
-<meta name="theme-color" content="{{ site.theme-color-attr }}">
-<meta name="msapplication-TileColor" content="{{ site.ms-tile-color }}">
-<meta name="msapplication-TileImage" content="{{ site.baseurl }}/mstile-310x310.png">
-<!-- /icons -->
+  <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
+  <meta name='description' content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+  <link rel='canonical' href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+  <link rel='alternate' type='application/rss+xml' title='{{ site.title }}' href="{{ '/feed.xml' | prepend: site.baseurl | prepend: site.url }}">
 
-<!-- og tags -->
-<meta property="og:site_name" content="{{ site.name }}">
-<meta property="og:title" content="{% if page.title %}{{ page.title }} • {{ site.name }}{% else %}{{ site.name }}{% endif %}">
-<meta property="og:locale" content="{{ site.lang }}">
-{% if page.og-image %}
-<meta property="og:image" content="{{ site.url }}{{ site.baseurl }}{{ page.og-image }}">
-{% else %}
-{% if page.cover-image %}
-<meta property="og:image" content="{{ site.url }}{{ site.baseurl }}{{ page.cover-image }}">
-{% else %}
-<meta property="og:image" content="{{ site.url }}{{ site.baseurl }}/img/og-image.jpg">
-{% endif %}
-{% endif %}
-<meta property="og:type" content="website">
-<meta property="og:url" content="{{ site.url }}{{ site.baseurl }}{{ page.url }}">
-<meta property="og:description" content="
-{% if page.summary %}
-{{ page.summary }}
-{% else %}
-{{ site.description.meta }}
-{% endif %}">
-<!-- /og tags -->
+  <!-- og tags -->
+  <meta property="og:site_name" content="{{ site.title }}">
+  <meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:image" content="{{ site.url }}{{ site.baseurl }}{% if page.image %}{{ page.image }}{% else %}/img/og-image.jpg{% endif %}">
+  <meta property="og:type" content="{% if page.title %}article{% else %}website{% endif %}">
+  <meta property="og:url" content="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+  <meta property="og:description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+  <!-- /og tags -->
+  
+  <style>
+    {% capture inlineCSS %}
+      {% include app.scss %}
+    {% endcapture %}
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-<script src="{{ site.baseurl }}/js/modernizr.js"></script>
-<script src="{{ site.baseurl }}/js/fitvids.js"></script>
-<link href='//fonts.googleapis.com/css?family=Source+Code+Pro:400,700|Source+Sans+Pro:600,900|Crimson+Text:700italic,600,600italic,400,700,400italic' rel='stylesheet' type='text/css'>
-<link rel="stylesheet" href="{{ site.baseurl }}/css/reset.css">
-<link rel="stylesheet" href="{{ site.baseurl }}/css/pygments.css">
-{% if site.display-social-icons %}
-<link rel="stylesheet" href="{{ site.baseurl }}/css/font-awesome.css">
-{% endif %}
-<link rel="stylesheet" href="{{ site.baseurl }}/css/style.css">
-<!--[if gte IE 9]>
-  <style type="text/css">
-    .gradient {
-       filter: none;
-    }
+    {{ inlineCSS | scssify }}
   </style>
-<![endif]-->
-
-{% if page.home != true or site.show-subtitle == false and site.display-social-icons == false %}
-<style>
-header {
-  margin-bottom: 40px;
-}
-@media all and (min-width: 500px) {
-  header {
-    margin-bottom: 100px;
-  }
-}
-header::after {
-  display: none;
-}
-</style>
-{% endif %}
+</head>
