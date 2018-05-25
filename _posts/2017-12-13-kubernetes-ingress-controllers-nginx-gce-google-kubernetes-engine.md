@@ -2,7 +2,7 @@
 layout: post
 title: "Kubernetes Ingress controllers – 'nginx' and 'gce' on Google Kubernetes Engine"
 summary: "There's many of different Ingress controllers, but just two of them really count in the end. In this post I'm describing both: Nginx and GCE, with examples based on Kubernetes cluster set up on Google Cloud Platform."
-cover-image: /img/blog/2017/12/google-load-balancer-l7-ingress.png
+image: /img/blog/2017/12/google-load-balancer-l7-ingress.png
 ---
 
 Getting to know Kubernetes might be a challenge when stepping out of your comfort zone consisting only of Pods and Deployments, where all Services you expose are just NodePorts or simple Load Balancers created with no knowledge what’s underneath. The same applies to Ingress and its controllers, without which the former can’t even work. In this post I would like to explain some of the least understandable parts of Ingress controllers, especially what’s the difference between the two most popular controllers Google Kubernetes Engine supports at the moment, often incomprehensibly defined using annotation `kubernetes.io/ingress.class`: **nginx** and **gce**.

@@ -1,33 +1,25 @@
 <!DOCTYPE html>
-<html lang="{{ site.lang }}" prefix="og: http://ogp.me/ns#">
-<head>
-	{% include head.html %}
-</head>
+<html lang='en'>
+
+{% include head.html %}
+
 <body>
-	<!-- Google Tag Manager (noscript) -->
-	<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NCDGB9Z"
-	height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-	<!-- End Google Tag Manager (noscript) -->
-	{% if page.cover-image %}
-	<div class="cover-image-container">
-		<img alt="Cover image" src="{{ site.baseurl }}{{ page.cover-image }}">
-	</div>
-	{% endif %}
-	<div class="wrap">
-		{% include header.html %}
-		{{ content }}
-	  <script>
-	    $("article").fitVids();
-	    $('article p').each(function(i){
-				if (($(this).find('img').length) && (!$.trim($(this).text()).length))  {
-					$(this).addClass('img-only');
-				}
-				if ($.trim($(this).text()).length - $.trim($(this).find('small').text()).length == 0 && ($(this).find('img').length)){
-					$(this).addClass('img-only-source');
-				}
-	  	});
-	  </script>
-	</div>
-	{% include footer.html %}
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NCDGB9Z"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  <div class='js-off-canvas-container c-off-canvas-container'>
+    {% include header.html %}
+
+    {{ content }}
+
+    {% include footer.html %}
+  </div>
+
+  <script src="{{ '/js/jquery-3.1.1.min.js' | prepend: site.baseurl }}"> </script>
+  <script src="{{ '/js/evil-icons.min.js' | prepend: site.baseurl }}">   </script>
+  <script src="{{ '/js/jquery.fitvids.js' | prepend: site.baseurl }}">   </script>
+  <script src="{{ '/js/app.js' | prepend: site.baseurl }}">              </script>
 </body>
+
 </html>

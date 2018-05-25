@@ -5,7 +5,7 @@ summary: "AWS Elastic Beanstalk and many of different services, not only the AWS
 redirect_from:
   - /2017/10/use-aws-waf-block-bots-jorgee-500-status-elastic-beanstalk
   - /2017/10/use-aws-waf-block-bots-jorgee-500-status-elastic-beanstalk/
-cover-image: /img/blog/2017/10/waf-blocked-requests-list-details.png
+image: /img/blog/2017/10/waf-blocked-requests-list-details.png
 ---
 
 Some months ago during the weekly inspection among the environments I'm keeping alive for my work projects, I’ve noticed there's an increased number of warnings in AWS Elastic Beanstalk events dashboards for almost each application I took a look at. After a quick investigation there was an incontestable cause of this behavior, and as it turned out, it wasn't that easy to solve the problem and clean the dashboard for the future. 
