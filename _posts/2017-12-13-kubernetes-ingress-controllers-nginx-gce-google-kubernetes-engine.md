@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "Kubernetes Ingress controllers – 'nginx' and 'gce' on Google Kubernetes Engine"
-summary: "There's many of different Ingress controllers, but just two of them really count in the end. In this post I'm describing both: Nginx and GCE, with examples based on Kubernetes cluster set up on Google Cloud Platform."
+title: "Kubernetes Ingress controllers – NGINX and GCE on Google Kubernetes Engine"
+summary: "There's many of different Ingress controllers, but just two of them really count in the end. In this post I'm describing both: nginx and GCE, with examples based on Kubernetes cluster set up on Google Cloud Platform."
 image: /img/blog/2017/12/google-load-balancer-l7-ingress.png
 ---
 
