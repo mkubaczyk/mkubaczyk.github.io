@@ -4,12 +4,12 @@ title: About
 permalink: /about/
 description: "I'm a passionate DevOps Engineer trying to automate as much as possible and I'm writing here to share my experience."
 ---
-My name is Mateusz Kubaczyk. I currently live in Poznan, Poland and I'm a passionate DevOps Engineer trying to automate as much as possible. When I'm not writing scripts helping devs in their work, I write more scripts to help myself do the first thing better.
+My name is Mateusz and I would describe myself as a passionate DevOps Engineer trying to automate as much as possible. Usually, true was the sentence of "when I’m not writing the code helping devs in their work, I write more code to help myself do the first thing better".
 
-I've had an opportunity to design, create, maintain and improve infrastructures for international clients from 3 continents. With this chance comes a great possibility to gather useful skills I can use in may day-to-day work.
+Currently, I'm working as a DevOps Engineer at Egnyte in the office based in Poznan, Poland.
 
-I help create efficient infrastructures that are both fault-tolerant and immune to daily risks. Starting from a simple restaurant webpage or a small Slack bot, through popular mobile games marketplace, to an advanced resource scheduling and time tracking SaaS tool used by companies from all over the globe.
+In my previous work places, I’ve had an opportunity to work within international projects and with this chances came a great possibility to gather useful skills I can use in may day-to-day work. All of the challenges I had to face made me a better DevOps Engineer, but I'm still surfing on my self-development wave.
 
-All of the challenges I had to face made me a better at planning the future, incoming projects. I can not only predict potential problems, but with similar occurrences in the past, I’ve been able to work out a productive manner of solving them. 
+I’m in love with Kubernetes and I really like Apple's ecosystem.
 
-I'm definitely in love with Kubernetes, AWS, broadly defined Cloud solutions, automation and Apple products.
+On a private side, I'm into cars, especially the ones we can meet on the road. I feel strange satisfaction when I can recognize the car only with the sound of its exhaust. Also I am crazy about postapocalyptic books - this started when first game from S.T.A.L.K.E.R. series was launched and I felt in love with the universum.
